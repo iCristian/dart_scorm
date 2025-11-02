@@ -1,10 +1,15 @@
+/// Declaraciones JS interop para las APIs SCORM 1.2 y 2004.
+///
+/// Nota: Estas clases solo definen el “shape” de los objetos JS expuestos por
+/// el LMS. No contienen lógica; las llamadas se resuelven en el objeto global
+/// `API` (SCORM 1.2) o `API_1484_11` (SCORM 2004).
 @JS()
 library scorm;
 
 import 'package:js/js.dart';
 
 @JS("API")
-class API_v1_2 {
+class ApiV12 {
   @JS("LMSInitialize")
   external static bool initialize(String message);
 
@@ -31,7 +36,7 @@ class API_v1_2 {
 }
 
 @JS("API_1484_11")
-class API_v2004 {
+class ApiV2004 {
   @JS("Initialize")
   external static bool initialize(String message);
 

@@ -1,9 +1,8 @@
 # scorm
 
-[![Pub](https://img.shields.io/pub/v/scorm.svg)](https://pub.dev/packages/scorm) [![Flutter Demo](https://img.shields.io/badge/flutter-demo-brightgreen)](https://scorm-dart.web.app
-)
+[![Pub](https://img.shields.io/pub/v/scorm.svg)](https://pub.dev/packages/scorm) [![Flutter Demo](https://img.shields.io/badge/flutter-demo-brightgreen)](https://scorm-dart.web.app)
 
-A simple package which lets you conveniently consume SCORM 1.2/20004 APIs in your dart/flutter web app. Also handles finding of the SCORM 'API' object in the current or `opener`'s view hierarchy.
+A simple package which lets you conveniently consume SCORM 1.2/2004 APIs in your Dart/Flutter web app. Also handles finding of the SCORM 'API' object in the current or `opener`'s view hierarchy.
 
 This opens a new scope for Dart/Flutter Web: Beautiful, interactive course content creation
 
@@ -22,16 +21,16 @@ Refer [here](https://pub.dev/packages/scorm/install)
 
 The example app is deployed at https://scorm-dart.web.app
 
-A complete example to run a Flutter web app as a SCORM package can be found in the [example folder](https://github.com/shripal17/dart_scorm/example)
+A complete example to run a Flutter web app as a SCORM package can be found in the [example folder](https://github.com/iCristian/dart_scorm/tree/main/example)
 
-To test it in LMS platforms, just build release version of the [example app](https://github.com/shripal17/dart_scorm/example) and create a zip file of the example/build/web folder.
+To test it in LMS platforms, just build release version of the [example app](https://github.com/iCristian/dart_scorm/tree/main/example) and create a zip file of the example/build/web folder.
 
-See [example/web/imsmanifest.xml](https://github.com/shripal17/dart_scorm/blob/main/example/web/imsmanifest.xml) for the resources declaration.
+See [example/web/imsmanifest.xml](https://github.com/iCristian/dart_scorm/blob/main/example/web/imsmanifest.xml) for the resources declaration.
 
 ### TLDR
-- The flutter app can be run in an `iframe` with the [example/web/flutter-app.html](https://github.com/shripal17/dart_scorm/blob/main/example/web/flutter-app.html) as `src`
-- [example/web/flutter-app.js](https://github.com/shripal17/dart_scorm/blob/main/example/web/flutter-app.js) creates a custom HTMLElement **for testing**, which is used in [example/web/index.html](https://github.com/shripal17/dart_scorm/blob/main/example/web/index.html)
-- [example/web/index.html](https://github.com/shripal17/dart_scorm/blob/main/example/web/index.html) contains [simplify-scorm](https://github.com/gabrieldoty/simplify-scorm) for emulation of the SCORM API
+- The flutter app can be run in an `iframe` with the [example/web/flutter-app.html](https://github.com/iCristian/dart_scorm/blob/main/example/web/flutter-app.html) as `src`
+- [example/web/flutter-app.js](https://github.com/iCristian/dart_scorm/blob/main/example/web/flutter-app.js) creates a custom HTMLElement **for testing**, which is used in [example/web/index.html](https://github.com/iCristian/dart_scorm/blob/main/example/web/index.html)
+- [example/web/index.html](https://github.com/iCristian/dart_scorm/blob/main/example/web/index.html) contains [simplify-scorm](https://github.com/gabrieldoty/simplify-scorm) for emulation of the SCORM API
 
 ### References
 [Official SCORM Docs](https://scorm.com/scorm-explained/technical-scorm/scorm-12-overview-for-developers)
@@ -42,7 +41,13 @@ See [example/web/imsmanifest.xml](https://github.com/shripal17/dart_scorm/blob/m
 
 --------
 
-    Copyright 2021 Shripal Jain
+   Copyright 2021-2025 Shripal Jain, iCristian
+
+## Mantenimiento y compatibilidad
+
+- Compatible con Dart 3 y Flutter Web actuales. Se han eliminado dependencias deprecadas (`dart:html`, `dart:js`) en favor de `package:web` y `dart:js_util`.
+- Se añadieron comentarios en español en el código para facilitar futuras actualizaciones.
+- Se incluye `analysis_options.yaml` con reglas recomendadas y CI con análisis y tests.
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.

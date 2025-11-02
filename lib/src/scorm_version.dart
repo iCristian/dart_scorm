@@ -1,4 +1,4 @@
-/// Supported SCORM Versions
+/// Versiones de SCORM soportadas.
 enum ScormVersion {
   /// SCORM 1.2
   v1_2,

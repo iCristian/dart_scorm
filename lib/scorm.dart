@@ -1,4 +1,5 @@
-/// Dart-JS based package to easily consume SCORM 1.2/2004 APIs in your dart/flutter web app
+/// Paquete basado en interop JS para consumir fácilmente las APIs SCORM 1.2/2004
+/// desde tu app web en Dart o Flutter.
 library scorm;
 
 export 'src/scorm_api.dart';

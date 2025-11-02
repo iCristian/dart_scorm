@@ -1,19 +1,34 @@
-import 'scorm_api.dart';
+// Import condicional para evitar dependencias web en entornos VM (tests).
+// En web, delega al ScormAPI real; en VM usa un stub seguro.
+import 'internal/default_setter_stub.dart'
+  if (dart.library.html) 'internal/default_setter_web.dart';
 
-/// Contains utility methods
+/// Métodos de utilidad para trabajar con SCORM.
 class ScormUtils {
   ScormUtils._();
 
-  /// Takes a [Map] of `<String,String>` as [values] and executes [ScormAPI.setValue] on each Map-entry
+  /// Toma un [Map] de `<String, String>` en [values] y ejecuta
+  /// [ScormAPI.setValue] para cada par clave/valor.
   ///
-  /// You can also pass a [keyPrefix] this String will be pre-pended to each key before setting value.
-  /// Example use case: You need to set multiple values but all the keys start with a common `CMIElement`/key e.g. `cmi.core` or `cmi.interactions` or just `cmi`
+  /// Puedes pasar un [keyPrefix] que se antepondrá a cada clave antes de
+  /// establecer el valor. Útil cuando todas las claves comparten un prefijo
+  /// común (por ejemplo `cmi.core`, `cmi.interactions` o simplemente `cmi`).
   ///
-  /// Returns a list of all the returns of [ScormAPI.setValue]
-  static List<String?> setValues(Map<String, String> values, {String keyPrefix = ""}) {
+  /// Para mayor testabilidad, puedes inyectar una función [setValueFn]
+  /// alternativa (firma `(key, value) => String?`) que se usará en lugar de
+  /// [ScormAPI.setValue]. Por defecto usa la API real.
+  ///
+  /// Devuelve la lista de respuestas devueltas por cada invocación a
+  /// [ScormAPI.setValue] (o [setValueFn]).
+  static List<String?> setValues(
+    Map<String, String> values, {
+    String keyPrefix = "",
+    String? Function(String key, String value)? setValueFn,
+  }) {
     final statuses = <String?>[];
+    final setter = setValueFn ?? defaultSetValue;
     values.forEach((key, value) {
-      statuses.add(ScormAPI.setValue(keyPrefix + key, value));
+      statuses.add(setter(keyPrefix + key, value));
     });
     return statuses;
   }

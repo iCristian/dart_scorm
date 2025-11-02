@@ -1,3 +1,10 @@
+## [1.1.0] 01-11-2025
+- Migración a `package:web` y `dart:js_util` (evita `dart:html` y `dart:js` deprecados)
+- Documentación del código en español y pequeñas mejoras de diseño
+- Nuevo `analysis_options.yaml` con reglas recomendadas
+- Añadido workflow de CI (análisis y pruebas)
+- `ScormUtils.setValues` ahora acepta una función opcional `setValueFn` para facilitar tests (retrocompatible)
+
 ## [1.0.0] 03-08-2023
 - Update project for dart 3 and null safety (Thanks to @codesnik)
 
